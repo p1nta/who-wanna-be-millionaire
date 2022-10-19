@@ -1,0 +1,30 @@
+.main {
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background-color: lightgray;
+}
+
+.sidebar_wrapper {
+  display: inline-block;
+  vertical-align: top;
+  width: 200px;
+  height: 100%;
+  background-image: linear-gradient(50deg, rgb(80,60,63), rgb(115,66,128), rgb(80,53,118));
+}
+
+.game_block_wrapper {
+  display: inline-block;
+  vertical-align: top;
+  width: calc(100% - 400px);
+  height: 100%;
+  padding: 30px;
+}
+
+.progress_block {
+  height: 80%;
+}
+
+.controls_block {
+  height: 20%;
+}

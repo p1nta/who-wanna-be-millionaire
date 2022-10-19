@@ -1,0 +1,49 @@
+.content_wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  padding: 10px;
+}
+
+.win_scale_item {
+  margin-bottom: 15px;
+  padding: 0 10px;
+  color: gold;
+  font-size: 0px;
+  border-radius: 12px;
+}
+
+.m_active {
+  color: black;
+  background-color: goldenrod
+}
+
+.m_completed {
+  color: goldenrod;
+  text-decoration: line-through;
+}
+
+.m_stone {
+  color: lightgray;
+}
+
+.position {
+  display: inline-block;
+  width: 20%;
+  padding-right: 10px;
+  font-size: 20px;
+  line-height: 1.2;
+  text-align: right;
+}
+
+.value {
+  display: inline-block;
+  padding-left: 10px;
+  width: 80%;
+  font-size: 20px;
+  line-height: 1.2;
+  text-decoration: inherit;
+}
+

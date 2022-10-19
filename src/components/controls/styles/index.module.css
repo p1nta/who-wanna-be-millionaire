@@ -1,0 +1,33 @@
+.content_wrapper {
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.controls_button {
+  height: 45px;
+  width: 100%;
+  background-color: rgba(61,22,65,0.3);
+  border: 1px solid rgb(61,22,65);
+  color: lightgray;
+  font-size: 17px;
+  cursor: pointer;
+  transition: all 0.3s;
+  border-radius: 3px;
+}
+
+.controls_button:hover {
+  transform: scale(1.01);
+}
+
+.controls_button:first-child {
+  margin-bottom: 15px;
+}
+
+.m_hidden {
+  opacity: 0;
+  visibility: hidden;
+}

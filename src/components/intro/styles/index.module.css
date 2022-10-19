@@ -1,0 +1,55 @@
+.content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px 30px;
+}
+
+.logo {
+  max-width: 500px;
+  margin: 0 auto 50px;
+  position: relative;
+}
+
+.menu {
+  display: grid;
+}
+
+.menu_item {
+  height: 60px;
+  background-color: transparent;
+  color: white;
+  font-size: 30px;
+  padding: 5px 10px;
+  cursor: pointer;
+  background-image: linear-gradient(rgb(61,22,65), rgb(29,4,44));
+  transition: transform 0.3s;
+  border-radius: 3px;
+}
+
+.menu_item:hover {
+  transform: scale(1.01);
+  background-image: linear-gradient(rgb(61,22,65), rgb(29,4,44));
+}
+
+.m_width {
+  max-width: 800px;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.points {
+  position: absolute;
+  padding: 0 10px;
+  background-color: goldenrod;
+  color: white;
+  font-size: 26px;
+  text-align: center;
+  height: 10%;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 12px;
+}
