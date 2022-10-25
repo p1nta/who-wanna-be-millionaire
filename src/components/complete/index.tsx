@@ -13,12 +13,12 @@ const formatter = new Intl.NumberFormat(
   },
 );
 
-interface IIntroProps {
+interface ICompleteProps {
   onStart: () => void;
   points?: number;
  }
  
- const Intro: React.FunctionComponent<IIntroProps> = ({
+ const Complete: React.FunctionComponent<ICompleteProps> = ({
   onStart,
   points,
  }) => (
@@ -45,4 +45,4 @@ interface IIntroProps {
   </div>
  );
 
- export default Intro;
+ export default Complete;
