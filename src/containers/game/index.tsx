@@ -42,9 +42,10 @@ function Game() {
       setSelected(value);
       updMusic('announcer_talk');
     } else if (value === selected) {
-      setCorrect(q.q.correct)
+      const correct = q.q.answers[q.q.correct];
+      setCorrect(correct)
 
-      if (q.q.correct === selected) {
+      if (correct === selected) {
         qController.markAsPlayed(q.index);
         updMusic('correct');
       } else {

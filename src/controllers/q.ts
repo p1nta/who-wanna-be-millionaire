@@ -1,10 +1,10 @@
-import questions from '../constants/questions_list';
+import questions from '../constants/questions_list_2';
 
 class QController {
   qNumbers = [];
   list: {
     question: string;
-    correct: string;
+    correct: number;
     answers: string[];
 }[];
 
