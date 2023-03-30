@@ -1,5 +1,5 @@
-import questions from '../constants/questions_list_2';
-// import questions from '../constants/questions_list';
+import questions from '../constants/questions_list';
+// import questions from '../constants/questions_list_2';
 
 interface IQuestionV1 {
   question: string;
@@ -44,7 +44,7 @@ class QController {
     }
 
     return {
-      q: this.list[qNumber],
+      ...this.list[qNumber],
       index,
     };
   }
@@ -61,6 +61,14 @@ class QController {
     }
 
     localStorage.setItem('Q', JSON.stringify(newList));
+  }
+
+  getCorrect = (q: TQuestion) => {
+    if (typeof q.correct === 'number') {
+      return q.answers[q.correct];
+    }
+
+    return q.correct;
   }
 }
 
