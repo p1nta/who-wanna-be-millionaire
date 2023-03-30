@@ -1,12 +1,24 @@
 import questions from '../constants/questions_list';
+// import questions from '../constants/questions_list_2';
+
+interface IQuestionV1 {
+  question: string;
+  id: string;
+  correct: string;
+  answers: string[];
+}
+interface IQuestionV2 {
+  question: string;
+  id: string;
+  correct: number;
+  answers: string[];
+}
+
+type TQuestion = IQuestionV1 | IQuestionV2;
 
 class QController {
   qNumbers = [];
-  list: {
-    question: string;
-    correct: string;
-    answers: string[];
-}[];
+  list: TQuestion[];
 
   constructor() {
     const localList = localStorage.getItem('Q');
@@ -32,7 +44,7 @@ class QController {
     }
 
     return {
-      q: this.list[qNumber],
+      ...this.list[qNumber],
       index,
     };
   }
@@ -49,6 +61,14 @@ class QController {
     }
 
     localStorage.setItem('Q', JSON.stringify(newList));
+  }
+
+  getCorrect = (q: TQuestion) => {
+    if (typeof q.correct === 'number') {
+      return q.answers[q.correct];
+    }
+
+    return q.correct;
   }
 }
 

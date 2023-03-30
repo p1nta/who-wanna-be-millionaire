@@ -42,9 +42,10 @@ function Game() {
       setSelected(value);
       updMusic('announcer_talk');
     } else if (value === selected) {
-      setCorrect(q.q.correct)
+      const correct = qController.getCorrect(q);
+      setCorrect(correct)
 
-      if (q.q.correct === selected) {
+      if (correct === selected) {
         qController.markAsPlayed(q.index);
         updMusic('correct');
       } else {
@@ -92,11 +93,11 @@ function Game() {
       <div className={s.game_block_wrapper}>
         {q && (
           <Question
-            answers={q.q.answers}
+            question={q.question}
+            answers={q.answers}
             selected={selected}
             onSelect={onSetSelected}
             correct={correct}
-            question={q.q.question}
           />
         )}
       </div>
