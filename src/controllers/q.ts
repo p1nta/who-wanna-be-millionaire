@@ -1,12 +1,24 @@
 import questions from '../constants/questions_list_2';
+// import questions from '../constants/questions_list';
+
+interface IQuestionV1 {
+  question: string;
+  id: string;
+  correct: string;
+  answers: string[];
+}
+interface IQuestionV2 {
+  question: string;
+  id: string;
+  correct: number;
+  answers: string[];
+}
+
+type TQuestion = IQuestionV1 | IQuestionV2;
 
 class QController {
   qNumbers = [];
-  list: {
-    question: string;
-    correct: number;
-    answers: string[];
-}[];
+  list: TQuestion[];
 
   constructor() {
     const localList = localStorage.getItem('Q');
