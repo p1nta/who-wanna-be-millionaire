@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import s from './styles/index.module.css';
 
-import Intro from '../../components/intro';
+import Complete from '../../components/complete';
 import WinScale from '../../components/progress_scale';
 import Controls from '../../components/controls';
 import Sounds from '../../components/sounds';
@@ -13,9 +13,9 @@ import { progressMarks } from '../../constants/progress_marks';
 import qController from '../../controllers/q';
 import useCounter from '../../hooks/use_counter';
 
-function App() {
+function Game() {
   const [music, setMusic] = useState('');
-  const [stage, setStage] = useState<'intro' | 'game' | 'complete'>('intro');
+  const [stage, setStage] = useState<'game' | 'complete'>('game');
   const [q, setQ] = useState(qController.getRandomQ());
   const question =  useCounter(1);
   const [selected, setSelected] = useState('');
@@ -42,9 +42,10 @@ function App() {
       setSelected(value);
       updMusic('announcer_talk');
     } else if (value === selected) {
-      setCorrect(q.q.correct)
+      const correct = qController.getCorrect(q);
+      setCorrect(correct)
 
-      if (q.q.correct === selected) {
+      if (correct === selected) {
         qController.markAsPlayed(q.index);
         updMusic('correct');
       } else {
@@ -72,18 +73,10 @@ function App() {
      setStage('complete');
   };
 
-  if (stage === 'intro') {
-    return (
-      <div className={s.main}>
-        <Intro onStart={restart} />
-      </div>
-    );
-  }
-
   if (stage === 'complete') {
     return (
       <div className={s.main}>
-        <Intro
+        <Complete
           onStart={restart}
           points={progressMarks[question.count] || 0}
         />
@@ -100,11 +93,11 @@ function App() {
       <div className={s.game_block_wrapper}>
         {q && (
           <Question
-            answers={q.q.answers}
+            question={q.question}
+            answers={q.answers}
             selected={selected}
             onSelect={onSetSelected}
             correct={correct}
-            question={q.q.question}
           />
         )}
       </div>
@@ -125,4 +118,4 @@ function App() {
   );
 }
 
-export default App;
+export default Game;
