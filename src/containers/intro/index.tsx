@@ -22,12 +22,12 @@ function Intro() {
           >
             START GAME
           </Link>
-          {/* <Link
+          <Link
             to="/create_questions"
             className={s.menu_item}
           >
             CREATE SET OF QUESTIONS
-          </Link> */}
+          </Link>
         </div>
       </div>
     </div>
